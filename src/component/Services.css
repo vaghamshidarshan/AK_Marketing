@@ -1,0 +1,232 @@
+/* @import url(https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap);
+@import url(https://use.fontawesome.com/releases/v5.4.1/css/all.css);
+
+:root {
+	--font-family: "Lato", "Open Sans", sans-serif;
+	--font-family-icon: "Font Awesome 5 Free";
+	--font-size: 16px;
+	--font-size-small: 14px;
+
+	--white: #aabbffa2;
+	--white-rgb: 255, 255, 255;
+	--dark: #0f0617;
+	--dark-rgb: 15, 6, 23;
+	--light: #e8e0e0;
+	--light-rgb: 232, 224, 224;
+	--primary: #0f04a2;
+	--primary-rgb: 178, 69, 255;
+	--secondary: #fac384;
+	--secondary-rgb: 250, 195, 132;
+	--shadow-color: 178, 169, 169;
+	--shadow: 1.4px 2.7px 3.6px rgba(var(--shadow-color), 0.017),
+		3.8px 7.5px 10px rgba(var(--shadow-color), 0.025),
+		9px 18.1px 24.1px rgba(var(--shadow-color), 0.033),
+		30px 60px 80px rgba(var(--shadow-color), 0.05);
+	--shadow-hover: 1.8px 3.7px 3.6px rgba(var(--shadow-color), 0.052),
+		5px 10.1px 10px rgba(var(--shadow-color), 0.075),
+		12.1px 24.4px 24.1px rgba(var(--shadow-color), 0.098),
+		40px 81px 80px rgba(var(--shadow-color), 0.15);
+}
+
+
+@media (min-width: 992px) {
+	mainbodyproducts {
+		padding: 1.5rem 5rem;
+	}
+}
+
+h1 {
+	font-size: 2rem;
+	line-height: 1.25;
+	margin: 0;
+}
+
+@media (min-width: 768px) {
+	h1 {
+		font-size: 3rem;
+	}
+}
+
+.filter {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .75rem;
+	padding: 5rem 0 3rem;
+}
+
+.search {
+	position: relative;
+}
+
+.search__input {
+	padding: 0.75rem 2.5rem 0.75rem 1rem;
+	border: 1px solid var(--primary);
+	background: var(--white);
+	color: var(--dark);
+	font-size: var(--font-size);
+	border-radius: 2rem;
+	outline: 0;
+}
+
+.search__button {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 1rem;
+	color: var(--primary);
+	margin: 0;
+	padding: 0;
+	background: transparent;
+	border: 0;
+}
+
+.button {
+	color: var(--primary);
+	font-size: var(--font-size-small);
+	font-weight: 700;
+	padding: 0.75rem 2rem;
+	border-radius: 2rem;
+	border: 2px solid var(--primary);
+	background: transparent;
+}
+
+.button.--active {
+	border-color: var(--primary);
+	background: var(--primary);
+	color: var(--light);
+}
+
+.grid {
+	display: grid;
+	grid-template-columns:1fr;
+	gap: 1rem;
+}
+
+@media (min-width: 768px) {
+	.grid {
+		grid-template-columns: repeat(4, 2fr);
+	}
+}
+
+@media (min-width: 1400px) {
+	.grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 3rem;
+	}
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	background: var(--white);
+	border-radius: 1.5rem;
+	overflow: hidden;
+	box-shadow: var(--shadow);
+	color: var(--dark);
+	text-decoration: none;
+	transition: all 0.25s;
+	position: relative;
+}
+
+.card__picture {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+	position: relative;
+	transition:  0.25s;
+}
+
+.card__picture:after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		rgba(var(--dark-rgb), 0) 25%,
+		rgba(var(--dark-rgb), 0)
+	);
+	z-index: 1;
+}
+
+.card__image {
+	width: 100%;
+	height: 200%;
+    z-index: 10;
+	object-fit: cover;
+	transition: transform 0.25s;
+}
+
+.card__content {
+    padding: 0rem 0rem;
+    position: relative;
+}
+
+.card__title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+}
+
+.card__description {}
+
+.card__more {
+	position: relative;
+	margin: -1.5rem 1.5rem -1.5rem 0;
+	height: 0rem;
+	width: 3rem;
+	border-radius: 50%;
+	background: var(--secondary);
+	color: var(--white);
+	align-self: flex-end;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.25s;
+	z-index: 2;
+}
+
+@media (min-width: 992px) {
+	.card__more {
+		margin: -2rem 1.5rem -2rem 0;
+		height: 4rem;
+		width: 4rem;
+	}
+}
+
+.card__location {
+	color: var(--primary);
+	text-transform: uppercase;
+	font-size: var(--font-size-small);
+	font-weight: 700;
+	margin-bottom: 0.25rem;
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+
+.card__location:before {
+	content: "\f3c5";
+	font-family: var(--font-family-icon);
+	font-weight: 900;
+	font-size: 0.75rem;
+}
+
+.card:hover {
+	box-shadow: var(--shadow-hover);
+}
+
+.card:hover .card__picture:after {
+	background: linear-gradient(
+		rgba(var(--primary-rgb), 0) 25%,
+		rgba(var(--primary-rgb), 0.5)
+	);
+}
+
+.card:hover .card__image {
+	transform: scale(1.1);
+}
+
+.card:hover .card__more {
+	background: var(--primary);
+} */

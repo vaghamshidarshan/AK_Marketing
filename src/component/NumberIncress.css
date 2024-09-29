@@ -1,0 +1,118 @@
+:root {
+	--color-background: #020c8f;
+	--color-text: #ffffff;
+	--color-accent: #6aff00;
+	--gap: clamp(1rem, 6vw, 3rem);
+	--full: minmax(var(--gap), 1fr);
+	--content: min(30em, 100% - var(--gap) * 2);
+	--popout: minmax(0, 3rem);
+	--font-size-large: clamp(2rem, 5vw, 3rem);
+	--font-size-medium: clamp(1.5rem, 4vw, 2.5rem);
+	--font-size-small: clamp(1rem, 3vw, 2rem);
+  }
+  
+  .stat {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-grow: 1;
+    font-family: "Source Sans Pro", serif;
+    align-items: center;
+	width: 30%;
+	margin-left: 2%;
+
+  }
+  
+  .stat-figure {
+	font-size: var(--font-size-large);
+	display: flex;
+	font-weight: bold;
+  }
+  
+  .numbers{
+	width: 290%;
+	margin-left:2.5%;
+	text-align: center;
+  }
+  .stat-caption {
+	text-align: center;
+	font-size: var(--font-size-small);
+  }
+  
+  .text-reverse {
+	padding: 3ch;
+	background-color: #020c8f;
+	color: #ffffff ;
+	border-radius: 2ch;
+  }
+  
+  /* Responsive grid layout */
+  .grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--gap);
+  }
+  
+  /* Adjust grid layout for larger screens */
+  @media (min-width: 768px) {
+	.grid {
+	  grid-template-columns: repeat(2, 1fr);
+	}
+  }
+  
+  @media (min-width: 1024px) {
+	.grid {
+	  grid-template-columns: repeat(3, 1fr);
+	}
+  }
+  
+  /* Simple vertical rhythm */
+  .flow > * + * {
+	margin-top: var(--flow, 1em);
+  }
+  
+  .flex {
+	display: flex;
+	flex-direction: column;
+	gap: 2ch;
+  }
+  
+  @media (min-width: 768px) {
+	.flex {
+	  flex-direction: row;
+	}
+  }
+  
+  .mb-10vh {
+	margin-bottom: 10vh;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 767px) {
+	.stat-figure {
+	  font-size: var(--font-size-medium);
+	}
+  
+	.stat-caption {
+	  font-size: var(--font-size-small);
+	}
+  }
+  
+  @media (max-width: 767px) {
+	.stat {
+		display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-grow: 4;
+        font-family: "Source Sans Pro", serif;
+        align-items: center;
+        width: 71%;
+        margin-left: 14%;
+	  }
+	  .numbers{
+		width: 95%;
+		margin-left:4.5%;
+		text-align: center;
+	  }
+  }
+  
